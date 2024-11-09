@@ -1,0 +1,171 @@
+.login-register-container {
+    overflow: hidden;
+}
+
+.header {
+    background-color: #f8f8f8;
+    padding: 10px 15px;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    position: relative;
+    margin-bottom: 30px;
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    .tab {
+        padding: 5px 20px;
+        cursor: pointer;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .tab-separator {
+        height: 40px;
+        width: 1px;
+        background:var(--black-color);
+        margin: 0 30px;
+    }
+
+    .active-indicator {
+        position: absolute;
+        bottom: 2px;
+        height: 8px;
+        width: 8px;
+        background-color: #903E52;
+        border-radius: 50%;
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
+#login-tab:checked~.active-indicator {
+    transform: translateX(-83px);
+}
+
+#register-tab:checked~.active-indicator {
+    transform: translateX(73px);
+}
+
+.tab-content {
+    padding: 10px;
+}
+
+.login-content,
+.register-content {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.show-tab {
+    opacity: 1;
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+ion-button {
+    margin-bottom: 10px;
+    height: 50px;
+    font-size: 16px;
+    text-transform: none;
+    --border-radius: 8px;
+}
+
+.donor-btn {
+    --background: #FCDBE3;
+    --color: #F04E75;
+}
+.organization-btn {
+    --background: #E0F3FB;
+    --color: #64C1E8;
+}
+
+
+.login-form {
+    margin-bottom: 30px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.remember-checkbox {
+    margin-right: 10px;
+}
+
+.login-button {
+    width: 100%;
+    --padding-right: 20px;
+    --padding-left: 20px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --background: #FFE849;
+    --box-shadow:var(--button-shadow);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+}
+
+.social-login {
+    text-align: center;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.divider-text {
+    padding: 0 10px;
+    color: #999;
+    font-size: 14px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #e0e0e0;
+}
+
+.google {
+    // background-image: url('path-to-google-icon.png');
+}
+
+.apple {
+    // background-image: url('path-to-apple-icon.png');
+}
+
+.facebook {
+    // background-image: url('path-to-facebook-icon.png');
+}

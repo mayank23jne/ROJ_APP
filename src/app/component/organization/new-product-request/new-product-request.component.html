@@ -1,0 +1,97 @@
+<ion-card>{{title}}</ion-card>
+<div class="ion-padding">
+  <ng-content *ngIf="!showCategoryFrom">
+    <div class="form-group">
+      <input type="text" placeholder="Product Name" class="form-input" />
+    </div>
+    <ion-item>
+      <ion-select
+        class="form-select"
+        justify="space-between"
+        label="Choose Category"
+      >
+        <ion-select-option value="apple">Apple</ion-select-option>
+        <ion-select-option value="banana">Banana</ion-select-option>
+        <ion-select-option value="orange">Orange</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select
+        class="form-select"
+        justify="space-between"
+        label="Choose Sub Category lvl. 1"
+      >
+        <ion-select-option value="apple">Apple</ion-select-option>
+        <ion-select-option value="banana">Banana</ion-select-option>
+        <ion-select-option value="orange">Orange</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select
+        class="form-select"
+        justify="space-between"
+        label="Choose Sub Category lvl. 2"
+      >
+        <ion-select-option value="apple">Apple</ion-select-option>
+        <ion-select-option value="banana">Banana</ion-select-option>
+        <ion-select-option value="orange">Orange</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <div class="input-group">
+      <div class="col-50">
+        <p>No. of Product</p>
+      </div>
+      <div class="col-50 button-group">
+        <ion-icon (click)="updateCount('decrement')" class="form-input ripple-icon" name="remove-outline"><ion-ripple-effect></ion-ripple-effect></ion-icon>
+        
+        <input type="text" [value]="productCount" readonly class="form-input" />
+        <ion-icon class="form-input ripple-icon" (click)="updateCount('increment')" name="add-outline"></ion-icon>
+      </div>
+    </div>
+    <ion-text style="margin-bottom:10px ;">
+      (If you can`t find a proper category or sub categories for your required
+      product <span (click)="openCategoryFrom()">click here</span> to send a request for adding it)
+    </ion-text>
+    <div class="footer-buttons">
+      <ion-button (click)="addRequest()">
+        Request Product
+      </ion-button>
+    </div>
+  </ng-content>
+  <ng-content *ngIf="showCategoryFrom">
+    <div class="form-group">
+      <input type="text" placeholder="Product Name" class="form-input" />
+    </div>
+    <div class="form-group">
+      <textarea rows="5" type="text" placeholder="Details" class="form-input"></textarea>
+    </div>
+    
+    <div class="input-group">
+      <input type="text" placeholder="Category" class="form-input" />
+    </div>
+    <div class="input-group">
+      <input type="text" placeholder="Sub Category 1" class="form-input" />
+    </div>
+    <div class="input-group">
+      <input type="text" placeholder="Sub Category 2" class="form-input" />
+    </div>
+
+    <div class="footer-buttons">
+      <ion-button (click)="addRequest()">
+        Send Request
+      </ion-button>
+    </div>
+  </ng-content>
+</div>
+<ion-modal [isOpen]="isModalOpen" id="request-modal" #modal trigger="open-custom-dialog" (didDismiss)="dismissModal()">
+  <ng-template>
+    <div class="wrapper">
+        <ion-icon (click)="modal.dismiss()" name="close-circle"></ion-icon>
+        <div class="content">
+          <ion-icon name="checkmark-circle"></ion-icon>
+          <h2>Your Product request has been successfully added.</h2>
+          <ion-text>You will be notified as soon as the Donor will donate you the required product.</ion-text>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>

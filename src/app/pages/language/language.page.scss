@@ -1,0 +1,72 @@
+.language-selection-container {
+    padding:0px 20px;
+}
+
+h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    --background: transparent;
+}
+
+ion-label {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+ion-radio {   
+    transition: all ease-in 0.2s;
+}
+
+.subtext {
+    font-size: 12px;
+    color:#903E52;
+}
+
+.next-button {
+    margin-top: 20px;
+    --background: #FFE849;
+    --color: #000000;
+    --padding-top: 18px;
+    --padding-bottom: 18px;
+    --padding-end: 70px;
+    --border-radius: 7px;
+    --padding-start: 70px;
+
+}
+ion-item {
+    --ripple-color: transparent;
+}
+
+ion-radio-group {
+    display: flex;
+    flex-direction: column;
+}
+
+ion-radio::part(container) {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999;
+    border-radius: 50%;
+}
+
+ion-radio::part(mark) {
+    background: #903E52;
+    width: 12px;
+    height: 12px;
+}
+.block {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ion-modal {
+    --height: auto;
+}

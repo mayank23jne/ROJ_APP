@@ -1,0 +1,7 @@
+{
+  "name": "ROJ",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

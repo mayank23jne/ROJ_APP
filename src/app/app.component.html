@@ -1,0 +1,56 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" menuId="main-menu" type="overlay">
+      <ion-header>
+        <ion-toolbar class="header_sidebar">
+          <div class="pl5 app_name">
+              <img class="logo-img" src="assets/images/logo.png" alt="logo">
+          </div>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-menu-toggle>
+            <ion-item>
+              <ion-icon name="person"></ion-icon>
+              <!-- <ion-label class="uname capitalize">{{ userName }}</ion-label>
+              <br><span class="capitalize role_badge">{{userRole  }}</span> -->
+            </ion-item>
+          </ion-menu-toggle>
+            <!-- <ion-list *ngFor="let p of menuList; let i = index" class="p-0">
+              <ion-item (click)="toggleAccordion(i)" routerDirection="root" [routerLink]="[]" lines="none" detail="false" [class.selected]="selectedIndex === i">
+                <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon"></ion-icon>
+                <ion-label class="capitalize">{{ p.title }}</ion-label>
+                <ion-icon slot="end" name="chevron-down" *ngIf="selectedIndex !== i && p.children"></ion-icon>
+                <ion-icon slot="end" name="chevron-up" *ngIf="selectedIndex === i && p.children"></ion-icon>
+              </ion-item>
+              <ion-list *ngIf="selectedIndex === i && p.children">
+                <ion-item *ngFor="let subPage of p.children" (click)="navigateTo(subPage.url)" routerDirection="root" [routerLink]="[subPage.url]" [class.selected]="isSelected(subPage.url)">
+                  <ion-icon slot="start" [ios]="subPage.icon + '-outline'" [md]="subPage.icon"></ion-icon>
+                  <ion-label class="capitalize">{{ subPage.title }}</ion-label>
+                </ion-item>
+              </ion-list>
+            </ion-list> --> 
+            <ion-menu-toggle >
+              <ion-list>
+             <ion-item 
+             *ngFor="let menu of menuList" [routerLink]="[menu.url]"  
+             [ngClass]="{'selected': menu.url == activeUrl}"
+             >
+                <ion-icon style="font-size:30px;" name="{{menu.icon}}"></ion-icon>
+                <ion-label style="position: relative;left: 25px;">{{menu.title}}</ion-label>
+              </ion-item>
+            </ion-list>
+         
+            <ion-item  lines="none" detail="false" (click)="logout()">
+              <ion-icon style="font-size:30px;" name="log-out-outline"></ion-icon>
+              <ion-label style="position: relative;left: 25px;">Logout</ion-label>
+            </ion-item>
+          </ion-menu-toggle> 
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
+<div *ngIf="isLoading" class="loader"></div>

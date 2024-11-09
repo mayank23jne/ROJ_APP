@@ -1,0 +1,31 @@
+.welcome-container{
+    background: url('../../../assets/images/welcom-page-bg.png');
+    background-size: 100% 100%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.text-content{
+    padding-top:100px ;
+    padding-left: 40px;
+    padding-right: 40px;
+    color:var(--black-color);
+}
+.text-content h3 {
+    font-size: 35px;
+}
+.button{
+    padding-bottom: 30px;
+}
+ion-button{
+    --background:var(--black-color);
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    --padding-start: 30px;
+    --padding-end: 30px;
+
+}
+

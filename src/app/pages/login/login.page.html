@@ -1,0 +1,140 @@
+<ion-content class="ion-padding">
+  <div class="login-register-container">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Logo">
+    </div>
+    
+   <div class="tabs">
+  <input type="radio" [(ngModel)]="selectedTab" (click)="selectedTabs('login')" id="login-tab" name="tabs" value="login">
+  <label for="login-tab" class="tab">Login</label>
+
+  <div class="tab-separator"></div>
+
+  <input type="radio" [(ngModel)]="selectedTab"  (click)="selectedTabs('register')" id="register-tab" name="tabs" value="register">
+  <label for="register-tab" class="tab">Register</label>
+
+  <span class="active-indicator"></span>
+</div>
+
+<div class="tab-content">
+  <!-- Login content -->
+  <div [ngClass]="{'login-content': true, 'show-tab': activeTab == 'login'}" >
+    <div class="login-container">
+    <form class="login-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <div class="form-group">
+      <input
+        type="text"
+        name="username"
+        [(ngModel)]="username"
+        #username="ngModel"
+        required
+        placeholder="Email or Phone No."
+        class="form-input"
+      />
+      <div *ngIf="username.invalid && username.touched" class="error-message">
+        Username is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        name="password"
+        [(ngModel)]="password"
+        #password="ngModel"
+        required
+        placeholder="Password"
+        class="form-input"
+      />
+      <ion-icon
+        [name]="showPassword ? 'eye-outline' : 'eye-off-outline'"
+        class="password-toggle"
+        (click)="togglePasswordVisibility()"
+      ></ion-icon>
+      <div *ngIf="password.invalid && password.touched" class="error-message">
+        Password is required
+      </div>
+    </div>
+
+    <div class="remember-me">
+      <input type="checkbox" id="remember" class="remember-checkbox" />
+      <label for="remember">Remember Me</label>
+    </div>
+
+    <ion-button type="submit" class="login-button" [disabled]="loginForm.invalid">Login</ion-button>
+  </form>
+
+      
+      <div class="social-login">
+        <div class="divider">
+          <span class="divider-text">or login with</span>
+        </div>
+        <div class="social-icons">
+          <img src="assets/icon/google.svg">
+          <img src="assets/icon/apple.svg">
+          <img src="assets/icon/facebook.svg">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register content -->
+  <div [ngClass]="{'register-content': true, 'show-tab': activeTab == 'register'}">
+    <ion-button expand="block" (click)="selectedTabs('donor')" class="donor-btn">Donor</ion-button>
+    <ion-button expand="block" (click)="selectedTabs('organisation')" class="organization-btn">Organisation</ion-button>
+  </div>
+  <!-- donor register -->
+  <div [ngClass]="{'login-content': true, 'show-tab': activeTab == 'donor'}" >
+    <div class="login-container">
+      <form class="login-form">
+        <div class="form-group">
+          <input type="text" placeholder="Full Name" class="form-input">
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Email or Phone No." class="form-input">
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Password" class="form-input">
+          <ion-icon name="eye-off-outline" class="password-toggle"></ion-icon>
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Confirm Password" class="form-input">
+          <ion-icon name="eye-off-outline" class="password-toggle"></ion-icon>
+        </div>
+        <div class="remember-me">
+          <input type="checkbox" id="remember" class="remember-checkbox">
+          <label for="remember">Remember Me</label>
+        </div>
+        <ion-button type="submit" class="login-button" routerLink="/register-profile">Register as Donor</ion-button>
+      </form>
+    </div>
+  </div>
+  <!-- Organisation register -->
+  <div [ngClass]="{'login-content': true, 'show-tab': activeTab == 'organisation'}" >
+    <div class="login-container">
+      <form class="login-form">
+        <div class="form-group">
+          <input type="text" placeholder="Name of Organisation" class="form-input">
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Email or Phone No." class="form-input">
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Password" class="form-input">
+          <ion-icon name="eye-off-outline" class="password-toggle"></ion-icon>
+        </div>
+        <div class="form-group">
+          <input type="password" placeholder="Confirm Password" class="form-input">
+          <ion-icon name="eye-off-outline" class="password-toggle"></ion-icon>
+        </div>
+        <div class="remember-me">
+          <input type="checkbox" id="remember" class="remember-checkbox">
+          <label for="remember">Remember Me</label>
+        </div>
+        <ion-button type="submit" routerLink="/register-profile-organization" class="login-button">Register as Organisation</ion-button>
+      </form>
+    </div>
+  </div>
+</div>
+  </div>
+</ion-content>

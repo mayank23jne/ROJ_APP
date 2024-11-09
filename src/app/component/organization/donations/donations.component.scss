@@ -1,0 +1,77 @@
+ion-segment {
+    --background: transparent;
+    gap: 10px;
+
+    ion-label {
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.2;
+    }
+}
+
+ion-segment-button {
+    --background-checked: var(--main-color);
+    border: 1px solid var(--main-color);
+    --color: var(--main-color);
+    --color-checked: white;
+    --indicator-color: transparent;
+    min-height: 55px;
+    --border-radius: 60px;
+    margin: 2px;
+}
+
+ion-segment-button::part(indicator) {
+    display: none;
+}
+
+ion-text {
+    font-size: 14px;
+    color: #c1c4cd;
+    margin-top: 10px;
+}
+
+.delivery-details {
+    color: #c1c4cd;
+}
+
+.card-box {
+    border-radius: 12px;
+    background-color: #fafafa;
+
+    .card-header {
+        padding: 20px 15px 0px 15px;
+    }
+
+    .card-content {
+        font-size: 14px;
+        color: #262222;
+        padding: 0px 20px;
+    }
+
+    button {
+        text-align: center;
+        background-color: #999FAE;
+        color: white;
+        font-size: 16px;
+        padding: 12px;
+        width: 100%;
+        border-radius: 0px 0px 12px 12px;
+    }
+
+    .status-label,
+    .status {
+        color: #903E52;
+    }
+
+    ion-icon {
+        font-size: 18px;
+    }
+
+    .donate-btn {
+        background-color: var(--main-color);
+    }
+
+    .padding-bottom {
+        padding-bottom: 20px;
+    }
+}

@@ -1,0 +1,71 @@
+<ion-content class="ion-padding">
+  <div class="form-container">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Logo">
+    </div>
+
+     
+      <div class="setp-tabs">
+        <div class="step-indicator">
+        STEP {{currentStep}} OF 2</div>
+         <span class="step-slider" [style]="currentStep === 2 ? '  transform: translateX(100%);' : '' " ></span>
+      </div>
+      
+      <div class="instruction">Complete your profile to continue</div>
+      <div class="scrollable-content"         
+      (touchstart)="onTouchStart($event)"
+      (touchmove)="onTouchMove($event)"
+      (touchend)="onTouchEnd()">
+      <ng-container *ngIf="currentStep === 1">
+        <div class="form-group">
+          <input type="text" placeholder="Full Name" [(ngModel)]="donorForm.name" class="form-input">
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Your Email" [(ngModel)]="donorForm.email" class="form-input">
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Your Phone" [(ngModel)]="donorForm.phone" class="form-input">
+        </div>
+        <div class="form-group">
+          <input type="date" [(ngModel)]="donorForm.dob" class="form-input">
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="currentStep === 2">
+        <div class="form-group">
+          <textarea type="text" placeholder="Pincode" [(ngModel)]="donorForm.pincode" class="form-input" rows="2"></textarea>
+        </div>
+        <ion-item>
+          <ion-select class="form-select" [(ngModel)]="donorForm.state" justify="space-between" label="State">
+            <ion-select-option value="Madhya Pradesh">Madhya Pradesh</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-select class="form-select" [(ngModel)]="donorForm.district" justify="space-between" label="District">
+            <ion-select-option value="District">District</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-select class="form-select" [(ngModel)]="donorForm.city" justify="space-between" label="City">
+            <ion-select-option value="city">Ciyt</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div class="form-group">
+          <input type="text" placeholder="Pincode" [(ngModel)]="donorForm.pincode" class="form-input">
+        </div>
+
+        <div class="location-btn" (click)="useCurrentLocation()">
+          <ion-icon name="location-outline"></ion-icon>
+          <span>Use current location</span>
+        </div>
+      </ng-container>
+    </div>
+ <ion-text>Skip For Now</ion-text>
+    <!-- Footer with buttons -->
+    <div class="footer-buttons">
+     
+      <ion-button  *ngIf="currentStep === 1" (click)="nextStep()">Next</ion-button>
+      <ion-button *ngIf="currentStep === 2" (click)="finish()" routerLink="/tabs/tab1">Finish</ion-button>
+    </div>
+  </div>
+</ion-content>

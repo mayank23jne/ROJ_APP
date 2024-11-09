@@ -1,0 +1,140 @@
+<article>
+    <ion-segment [scrollable]="true" [(ngModel)]="selectedTab" >
+      <ion-segment-button value="inProgress">
+        <ion-label>Donations In Progress</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="past">
+        <ion-label>Past Donations</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="pending">
+        <ion-label>Pending Donations</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="savedforlater">
+        <ion-label>Saved for later Donations</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <ion-text>(Visit our Rainbows of Joy website on desktop view
+  to have a better list view and work more faster)</ion-text>
+  </article>
+  <ng-content *ngIf="selectedTab == 'inProgress'">
+      <article class="card-box" [ngClass]="{'fade-animation': selectedTab === 'inProgress'}" >
+      <ion-row class="card-header">
+        <ion-col size="9" class="card-title">
+          1 . Sri Vidhyas Centre For The Special Children
+        </ion-col>
+        <ion-col size="3" class="card-id">
+          (#1891)
+        </ion-col>
+      </ion-row>
+    
+      <ion-row class="card-content">
+        <ion-col size="6" class="label">Product Name</ion-col>
+        <ion-col size="6">-  Blanket</ion-col>
+        
+        <ion-col size="6" class="label">No of Product</ion-col>
+        <ion-col size="6">-  05</ion-col>
+        
+        <ion-col size="6" class="label">Delivery Date</ion-col>
+        <ion-col size="6">-  05-10-2024</ion-col>
+        
+        <ion-col size="6" class="label">Delivery Timing</ion-col>
+        <ion-col size="6">-  08:10 am to 11:00 am</ion-col>
+        
+        <ion-col size="6" class="status-label">Status</ion-col>
+        <ion-col size="6" class="status">-  In Progress</ion-col>
+        <ion-col size="12" class="delivery-details">Change Delivery Details</ion-col>
+      </ion-row>
+      <ion-row class="card-footer">
+          <button class="ripple-icon">Self Delivery</button>
+      </ion-row>
+    </article>
+  </ng-content>
+  <ng-content *ngIf="selectedTab == 'past'">
+      <article class="card-box" [ngClass]="{'fade-animation': selectedTab === 'past'}" >
+      <ion-row class="card-header">
+        <ion-col size="9" class="card-title">
+          1 . Sri Vidhyas Centre For The Special Children
+        </ion-col>
+        <ion-col size="3" class="card-id">
+          (#1891)
+        </ion-col>
+      </ion-row>
+    
+      <ion-row class="card-content">
+        <ion-col size="6" class="label">Product Name</ion-col>
+        <ion-col size="6">-  Blanket</ion-col>
+        
+        <ion-col size="6" class="label">No of Product</ion-col>
+        <ion-col size="6">-  05</ion-col>
+        
+        <ion-col size="6" class="label">Delivery Date</ion-col>
+        <ion-col size="6">-  05-10-2024</ion-col>
+        
+        <ion-col size="6" class="label">Delivery Timing</ion-col>
+        <ion-col size="6">-  08:10 am to 11:00 am</ion-col>
+        
+        <ion-col size="6" class="status-label">Status</ion-col>
+        <ion-col size="6" class="status">-  In Progress</ion-col>
+        <ion-col size="12" class="delivery-details">Change Delivery Details</ion-col>
+      </ion-row>
+      <ion-row class="card-footer">
+          <button class="ripple-icon">Self Delivery</button>
+      </ion-row>
+    </article>
+  </ng-content>
+  <ng-content *ngIf="selectedTab == 'pending'">
+      <article class="card-box" [ngClass]="{'fade-animation': selectedTab === 'pending'}" >
+      <ion-row class="card-header">
+        <ion-col size="12" class="card-title flex-box">
+          1 . Fan
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-col>
+      </ion-row>
+    
+      <ion-row class="card-content padding-bottom">
+        <ion-col size="6" class="label">Category</ion-col>
+        <ion-col size="6">- Homeware</ion-col>
+        
+        <ion-col size="6" class="label">Sub Category 1</ion-col>
+        <ion-col size="6">-  Fans</ion-col>
+        
+        <ion-col size="6" class="label">Sub Category 2</ion-col>
+        <ion-col size="6">-  Small Appliances</ion-col>
+        
+        <ion-col size="6" class="label">No. of product</ion-col>
+        <ion-col size="6">-  07</ion-col>
+        
+        <ion-col size="6" class="label">Added on</ion-col>
+        <ion-col size="6" class="flex-box"><span>-  02 / 10 /20 </span><ion-icon name="create-outline"></ion-icon></ion-col>
+      </ion-row>
+    </article>
+  </ng-content>
+  <ng-content *ngIf="selectedTab == 'savedforlater'">
+      <article class="card-box" [ngClass]="{'fade-animation': selectedTab === 'savedforlater'}" >
+      <ion-row class="card-header">
+        <ion-col size="12" class="card-title">
+          1 . Fan
+        </ion-col>
+      </ion-row>
+    
+      <ion-row class="card-content padding-bottom">
+        <ion-col size="6" class="label">Category</ion-col>
+        <ion-col size="6">- Homeware</ion-col>
+        
+        <ion-col size="6" class="label">Sub Category 1</ion-col>
+        <ion-col size="6">-  Fans</ion-col>
+        
+        <ion-col size="6" class="label">Sub Category 2</ion-col>
+        <ion-col size="6">-  Small Appliances</ion-col>
+        
+        <ion-col size="6" class="label">No. of product</ion-col>
+        <ion-col size="6">-  07</ion-col>
+        
+        <ion-col size="6" class="label">Requested on</ion-col>
+        <ion-col size="6" >-  02 / 10 /20 </ion-col>
+      </ion-row>
+       <ion-row class="card-footer">
+          <button class="ripple-icon donate-btn">Donate Now</button>
+      </ion-row>
+    </article>
+  </ng-content>

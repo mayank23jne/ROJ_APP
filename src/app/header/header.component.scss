@@ -1,0 +1,17 @@
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+    ion-menu-button{
+        width: auto !important;
+        height: auto !important;
+    }
+}
+.header-logo{
+    text-align: center;
+    img {
+            max-width: 65%;
+        }
+}

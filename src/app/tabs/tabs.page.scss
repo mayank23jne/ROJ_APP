@@ -1,0 +1,13 @@
+
+ion-tab-button.tab-selected {
+    color:var(--main-color);
+}
+ion-tab-bar{
+    height: 65px;
+    box-shadow: 0px -1px 5px #00000021;
+}
+
+ion-tab-button.tab-selected svg path,
+ion-tab-button.tab-selected svg text ,ion-tab-button.tab-selected svg ellipse  {
+    fill: var(--main-color) !important;
+}

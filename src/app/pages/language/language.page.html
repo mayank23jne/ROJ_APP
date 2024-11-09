@@ -1,0 +1,58 @@
+<ion-content class="ion-padding">
+  <ion-backdrop [visible]="true"></ion-backdrop>
+  <div class="language-selection-container">
+    <h2>Choose Language / भाषा चुनें</h2>
+    <ion-radio-group [(ngModel)]="selectedLanguage">
+      <ion-item lines="none">
+        <ion-label>English</ion-label>
+        <ion-radio slot="start" value="english"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>हिन्दी<br><span class="subtext">Hindi</span></ion-label>
+        <ion-radio slot="start" value="hindi"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>বাংলা<br><span class="subtext">Bangla</span></ion-label>
+        <ion-radio slot="start" value="bangla"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>తెలుగు<br><span class="subtext">Telugu</span></ion-label>
+        <ion-radio slot="start" value="telugu"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>मराठी<br><span class="subtext">Marathi</span></ion-label>
+        <ion-radio slot="start" value="marathi"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>தமிழ்<br><span class="subtext">Tamil</span></ion-label>
+        <ion-radio slot="start" value="tamil"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>ગુજરાતી<br><span class="subtext">Gujarati</span></ion-label>
+        <ion-radio slot="start" value="gujarati"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>ଓଡ଼ିଆ<br><span class="subtext">Odia</span></ion-label>
+        <ion-radio slot="start" value="odia"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>ಕನ್ನಡ<br><span class="subtext">Kannada</span></ion-label>
+        <ion-radio slot="start" value="kannada"></ion-radio>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>ਪੰਜਾਬੀ<br><span class="subtext">Punjabi</span></ion-label>
+        <ion-radio slot="start" value="punjabi"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <div class="text-center">
+      <ion-button class="next-button">Next</ion-button>
+    </div>
+  </div>
+    <!-- <ion-button id="open-modal" expand="block">Open Sheet Modal</ion-button> -->
+
+  <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+    <ng-template>
+      <div class="block">Block of Content</div>
+    </ng-template>
+  </ion-modal>
+</ion-content>

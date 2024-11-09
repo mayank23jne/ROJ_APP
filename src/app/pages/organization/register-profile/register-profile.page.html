@@ -1,0 +1,197 @@
+<ion-content class="ion-padding">
+  <div class="form-container">
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Logo" />
+    </div>
+
+    <div class="setp-tabs">
+      <div class="step-indicator">STEP {{currentStep}} OF 4</div>
+      <span
+        class="step-slider"
+        [style.transform]="'translateX(' + (currentStep - 1) + '00%)'"
+      ></span>
+    </div>
+
+    <div class="instruction">Complete your profile to continue</div>
+    <div
+      class="scrollable-content"
+      (touchstart)="onTouchStart($event)"
+      (touchmove)="onTouchMove($event)"
+      (touchend)="onTouchEnd()"
+    >
+      <ng-container *ngIf="currentStep === 1">
+        <div class="form-group">
+          <input
+            type="text"
+            placeholder="Organization Name"
+            class="form-input"
+          />
+        </div>
+        <ion-item>
+          <ion-select
+            class="form-select"
+            justify="space-between"
+            label="Organization Type"
+          >
+            <ion-select-option value="apple">Apple</ion-select-option>
+            <ion-select-option value="banana">Banana</ion-select-option>
+            <ion-select-option value="orange">Orange</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <div class="form-group">
+          <input type="email" placeholder="Email" class="form-input" />
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Phone" class="form-input" />
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="currentStep === 2">
+        <div class="form-group">
+          <input type="text" placeholder="No. of People" class="form-input" />
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="No. of Rooms" class="form-input" />
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Started in year" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label>Days open</label>
+          <div class="checkbox-group">
+            <input type="checkbox" id="monday" />
+            <label for="monday">M</label>
+            <input type="checkbox" id="tuesday" />
+            <label for="tuesday">T</label>
+            <input type="checkbox" id="wednesday" />
+            <label for="wednesday">W</label>
+            <input type="checkbox" id="thursday" />
+            <label for="thursday">Th</label>
+            <input type="checkbox" id="friday" />
+            <label for="friday">F</label>
+            <input type="checkbox" id="saturday" />
+            <label for="saturday">S</label>
+            <input type="checkbox" id="sunday" />
+            <label for="sunday">Su</label>
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="col-50">
+            <label>Start time</label>
+            <input type="time" class="form-input" />
+          </div>
+          <div class="col-50">
+            <label>End time</label>
+            <input type="time" class="form-input" />
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentStep === 3">
+        <div class="form-group">
+          <textarea
+            type="text"
+            placeholder="Address"
+            class="form-input"
+            rows="2"
+          ></textarea>
+        </div>
+        <ion-item>
+          <ion-select class="form-select" placeholder="Madhya Pradesh">
+            <ion-select-option value="Madhya Pradesh">
+              Madhya Pradesh
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-select class="form-select" placeholder="District">
+            <ion-select-option value="District">District</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-select class="form-select" placeholder="City">
+            <ion-select-option value="city">Ciyt</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div class="input-group">
+          <div class="col-50">
+            <input type="text" placeholder="Area" class="form-input" />
+          </div>
+          <div class="col-50">
+            <input type="text" placeholder="Pincode" class="form-input" />
+          </div>
+        </div>
+
+        <div class="location-btn" (click)="useCurrentLocation()">
+          <ion-icon name="location-outline"></ion-icon>
+          <span>Use current location</span>
+        </div>
+        <div class="remember-me">
+          <input type="checkbox" id="remember" class="remember-checkbox" />
+          <label for="remember">Set as Primary Address</label>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="currentStep === 4">
+        <div class="image-selection-container">
+          <label>Add photos of your organization</label>
+          <div class="image-grid">
+            <div
+              *ngFor="let image of images; let i = index"
+              class="image-box"
+              (click)="selectImage(i)"
+            >
+              <img *ngIf="image" [src]="image" alt="Selected image" />
+              <ion-icon *ngIf="!image" name="add-circle-outline"></ion-icon>
+            </div>
+            <div class="image-box" (click)="addImageBox()">
+              <ion-text>+ ADD MORE</ion-text>
+            </div>
+          </div>
+          <div class="description-box">
+            <label>Short Description about your organization</label>
+            <ion-textarea
+              rows="4"
+              placeholder="Tell us about your organization, how it works and how many lives it has changed in these past years"
+              class="form-input"
+            ></ion-textarea>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="footer-buttons">
+      <ion-button *ngIf="currentStep !== 4" (click)="nextStep()">
+        Next
+      </ion-button>
+      <ion-button
+        *ngIf="currentStep === 4"
+        (click)="finish()"
+        routerLink="/tabs/tab1"
+      >
+        Finish
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- modal -->
+  <ion-modal
+    [isOpen]="isModalOpen"
+    [initialBreakpoint]="1"
+    [breakpoints]="[0, 1]"
+  >
+    <ng-template>
+      <div class="block">
+        <ion-text>Enter OTP sent on your Phone No.040 2773 4515</ion-text>
+        <div class="form-group">
+          <input type="text" placeholder="OTP" class="form-input" />
+          <!-- resend otp -->
+          <p class="refresh-test">
+            <ion-icon name="refresh-outline"></ion-icon>
+            Resend OTP
+          </p>
+        </div>
+        <ion-button>Confirm</ion-button>
+      </div>
+    </ng-template>
+  </ion-modal>
+</ion-content>

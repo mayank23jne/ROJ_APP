@@ -1,0 +1,38 @@
+<swiper-container [slidesPerView]="1" [loop]="true" [centeredSlides]="false" autoplay-delay="4000"
+  [pagination]="{ clickable: true }">
+  <swiper-slide>
+    <div class="slider-box">
+      <ion-img src="assets/images/slide-1.jpg" />
+    </div>
+  </swiper-slide>
+  <swiper-slide>
+    <div class="slider-box">
+      <ion-img src="assets/images/slide-2.jpg" />
+    </div>
+  </swiper-slide>
+</swiper-container>
+<article class="home-container">
+  <ng-container *ngIf="userType === 'donor'; else organization">
+    <ion-label>What would you like to donate</ion-label>
+    <div class="form-group">
+      <input type="text" placeholder="Type here.." list="suggestions" class="form-input" />
+      <datalist id="suggestions">
+        <option value="Black"></option>
+        <option value="Red"></option>
+        <option value="Green"></option>
+        <option value="Blue"></option>
+        <option value="White"></option>
+      </datalist>
+
+      <ion-icon src="assets/icon/search-icon.svg" class="search-icon"></ion-icon>
+      <!-- <ion-icon name="search-sharp" class="password-toggle" ></ion-icon> -->
+    </div>
+    <ion-img src="assets/icon/donor-home.svg"/>
+  </ng-container>
+  
+  <ng-template #organization>
+    <ion-img src="assets/icon/organization-home.svg" />
+    <h4 routerLink="/tabs/tab1/product-request">Add a New Product Request</h4>
+  </ng-template>
+</article>
+

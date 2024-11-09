@@ -1,0 +1,59 @@
+<article *ngIf="userDetails">
+  <ion-title>
+    {{ userDetails?.name }}
+  </ion-title>
+  <div class="divider"></div>
+  <div class="card">
+    <div class="card-header flex-box">
+      <ion-text class="gray underline">
+        Address
+      </ion-text>
+      <ion-text class="gray">
+        Edit
+      </ion-text>
+    </div>
+    <div class="card-content">
+      <ion-text>
+        {{ getFullAddress() }}
+      </ion-text>
+    </div>
+    <div class="card-footer">
+      <ion-text class="gray">
+        + Add New Address
+      </ion-text>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card">
+    <div class="card-header flex-box">
+      <ion-text class="gray underline">
+        Email Id
+      </ion-text>
+      <ion-text class="gray">
+        Edit
+      </ion-text>
+    </div>
+    <div class="card-content">
+      <ion-text>
+        {{ userDetails?.email }}
+      </ion-text>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="card">
+    <div class="card-header flex-box">
+      <ion-text class="gray underline">
+        Phone
+      </ion-text>
+      <ion-text class="gray">
+        Edit
+      </ion-text>
+    </div>
+    <div class="card-content">
+      <ion-text>
+        {{ userDetails?.phone }}
+      </ion-text>
+    </div>
+  </div>
+  <div class="divider"></div>
+</article>

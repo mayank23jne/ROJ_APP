@@ -1,0 +1,123 @@
+ion-item {
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    --background: transparent;
+    --border-radius: 8px;
+    margin-bottom: 15px;
+    height: 54px;
+}
+
+ion-card {
+    margin: 0;
+    padding: 18px;
+}
+
+ion-text {
+    font-size: 14px;
+    text-align: right;
+    color: #5B5B5B;
+}
+
+ion-input,
+ion-select,
+ion-datetime {
+    --padding-start: 12px;
+    font-size: 14px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    text-align: center;
+
+    .col-50 {
+        width: 50%;
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+.icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.icon-wrapper ion-ripple-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+    input {
+        text-align: center;
+        font-weight: bold;  
+        border-radius: 0px;
+    }
+    ion-icon:nth-child(1) {
+        border-radius: 8px 0px 0px 8px;
+    }
+    ion-icon:nth-child(3) {
+        border-radius: 0px 8px 8px 0px;
+    }
+}
+
+ion-text {
+    display: block;
+    margin-top: 20px;
+    text-align: left;
+
+    span {
+        color: var(--main-color);
+    }
+}
+
+ion-modal#request-modal {
+    --width: 90%;
+    --height: fit-content;
+    --border-radius: 6px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+}
+
+
+ion-modal#request-modal 
+
+.wrapper {
+    text-align: right;
+    padding-bottom: 25px;
+    ion-icon {
+            width: 25px;
+            height: 25px;
+            padding: 5px 5px 0px 0px;
+            color:#cccc;
+        }
+}
+ion-modal#request-modal .content {
+    text-align: center;
+    padding: 25px 50px;
+
+    h2{
+        font-size: 20px;
+    }
+    ion-text{
+        display: block;
+        text-align: center;
+    }
+    ion-icon {
+        width: 60px;
+        height: 60px;
+        padding: 4px 0;
+        color:var(--main-color);
+    }
+}
