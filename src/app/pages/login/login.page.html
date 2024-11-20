@@ -25,7 +25,7 @@
       <input
         type="text"
         name="username"
-        [(ngModel)]="username"
+        [(ngModel)]="userName"
         #username="ngModel"
         required
         placeholder="Email or Phone No."
@@ -40,7 +40,7 @@
       <input
         [type]="showPassword ? 'text' : 'password'"
         name="password"
-        [(ngModel)]="password"
+        [(ngModel)]="passWord"
         #password="ngModel"
         required
         placeholder="Password"
@@ -110,28 +110,43 @@
     </div>
   </div>
   <!-- Organisation register -->
-  <div [ngClass]="{'login-content': true, 'show-tab': activeTab == 'organisation'}" >
+  <div [ngClass]="{'login-content': true, 'show-tab': activeTab == 'organisation'}">
     <div class="login-container">
-      <form class="login-form">
+      <form class="login-form"  #orgRegForm="ngForm" (ngSubmit)="register(orgRegForm)">
         <div class="form-group">
-          <input type="text" placeholder="Name of Organisation" class="form-input">
+          <input type="hidden" name="user_type" [(ngModel)]="orgType"/>
+          <input type="text" placeholder="Name of Organisation" class="form-input" name="name" [(ngModel)]="orgName" #orgname="ngModel" required>
+          <div *ngIf="orgname.invalid && orgname.touched" class="error-message">
+            Org name is required
+          </div>
         </div>
         <div class="form-group">
-          <input type="text" placeholder="Email or Phone No." class="form-input">
+          <input type="text" placeholder="Email or Phone No." class="form-input" name="email_or_phone" [(ngModel)]="emailPhone" #email_or_phone="ngModel" required>
+          <div *ngIf="email_or_phone.invalid && email_or_phone.touched" class="error-message">
+            Email/Phone No. is required
+          </div>
         </div>
         <div class="form-group">
-          <input type="password" placeholder="Password" class="form-input">
-          <ion-icon name="eye-off-outline" class="password-toggle"></ion-icon>
+          <input [type]="showPassword ? 'text' : 'password'" placeholder="Password" class="form-input" name="password" [(ngModel)]="orgPassword" #passwords="ngModel" required minlength="8" maxlength="16">
+          <ion-icon [name]="showPassword ? 'eye-outline' : 'eye-off-outline'" class="password-toggle" (click)="togglePasswordVisibility()"></ion-icon>
+          <div *ngIf="passwords.invalid && passwords.touched" class="error-message">
+            Password is required and must be between 8 and 16 characters.
+          </div>
         </div>
         <div class="form-group">
-          <input type="password" placeholder="Confirm Password" class="form-input">
-          <ion-icon name="eye-off-outline" class="password-toggle"></ion-icon>
+          <input [type]="showPassword ? 'text' : 'password'" placeholder="Confirm Password" class="form-input" name="confirm_password" [(ngModel)]="orgConfirmPassword" #c_passwords="ngModel" required minlength="8" maxlength="16">
+          <ion-icon [name]="showPassword ? 'eye-outline' : 'eye-off-outline'" class="password-toggle" (click)="togglePasswordVisibility()"></ion-icon>
+          <!-- Show mismatch error only when both passwords are filled and don't match -->
+          <div *ngIf="orgConfirmPassword !== orgPassword && c_passwords.touched" class="error-message">
+            Password and Confirm Password must match.
+          </div>
         </div>
+        
         <div class="remember-me">
-          <input type="checkbox" id="remember" class="remember-checkbox">
-          <label for="remember">Remember Me</label>
+          <input type="checkbox" id="remember" class="remember-checkbox" required>
+          <label for="remember">Agree to the Terms & Conditions</label>
         </div>
-        <ion-button type="submit" routerLink="/register-profile-organization" class="login-button">Register as Organisation</ion-button>
+        <ion-button type="submit"  class="login-button"  [disabled]="orgRegForm.invalid || orgConfirmPassword !== orgPassword">Register as Organisation</ion-button>
       </form>
     </div>
   </div>

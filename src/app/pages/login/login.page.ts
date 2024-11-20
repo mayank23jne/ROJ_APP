@@ -9,6 +9,7 @@ import { of } from 'rxjs';
 import { App } from '@capacitor/app';
 import { AlertController, Platform ,MenuController, NavController} from '@ionic/angular';
 import { ThemeService } from 'src/app/services/theme.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -19,9 +20,14 @@ import { ThemeService } from 'src/app/services/theme.service';
 export class LoginPage implements OnInit {
   selectedTab: string = 'login'
   activeTab: string ='login';
-  username: string = '';
-  password: string = '';
+  userName: string = '';
+  passWord: string = '';
+  orgName: string = '';
+  emailPhone: string = '';
+  orgPassword: string = '';
+  orgConfirmPassword: string = '';
   showPassword: boolean = false;
+  orgType: number = 2;
 
   constructor(
     private router: Router,
@@ -116,4 +122,36 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
+  register(regForm: NgForm) {
+    if (regForm.valid) {
+      this.loader.showLoader();
+  
+      this.apiService.register(regForm.value).pipe(
+        catchError((error: HttpErrorResponse) => {
+          // Pass the error as an observable to handle it in subscribe
+          return of(error);
+        })
+      ).subscribe((res) => {
+        // If res is an instance of HttpErrorResponse, it's an error
+        if (res instanceof HttpErrorResponse) {
+          if (res.status === 422) {
+            this.toastService.showToast('error', 'Validation error: ' + (res.error.message || 'Invalid data'));
+          } else {
+            this.toastService.showToast('error', 'An error occurred. Please try again.');
+          }
+        } else if (res?.status) {
+          // Handle success case
+          this.toastService.showToast('success', 'Registration successful!');
+          this.router.navigate(['/register-profile-organization']);
+        } else {
+          // Handle other failure cases
+          this.toastService.showToast('error', res?.message || 'Registration failed.');
+        }
+        this.loader.hideLoader();
+      });
+    } else {
+      this.toastService.showToast('error', 'Please fill out the form correctly.');
+    }
+  }
+  
 }

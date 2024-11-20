@@ -48,4 +48,7 @@ export class ApiService {
     return this.fetchApi('post','permission');
   }
 
+  register(data:any) {
+    return this.fetchApi('post','user-register', data);
+  }
 }
