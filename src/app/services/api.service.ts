@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ApiService {
+  userData:any =JSON.parse(localStorage.getItem('app_user') || '');
   constructor(
     private http: HttpClient,
   ) { }
@@ -35,18 +36,18 @@ export class ApiService {
     return this.fetchApi('post','user-login', data);
   }
   getSingleUser() {
-    const userData = localStorage.getItem('app_user') || '';
-    const data = JSON.parse(userData);
-    
-    return this.fetchApi('post', 'getSingleUser', { id: data.user_id });
+    return this.fetchApi('post', 'getSingleUser', { id: this.userData.user_id });
   }
-  dashboard(){
-    return this.fetchApi('post','dashboard_details');
+  getSingleOrg() {
+    return this.fetchApi('get', `org/get-profile/${this.userData.user_id}`);
   }
-  permission() {
-    return this.fetchApi('post','permission');
+  donorDashboard() {
+    return this.fetchApi('post','donor/dashboard',{ user_id:this.userData.user_id});
   }
   register(data:any) {
     return this.fetchApi('post','user-register', data);
+  }
+  getWeeklyDonations() {
+    return this.fetchApi('post', 'donor/getWeeklyDonations',{user_id:this.userData.user_id});
   }
 }
