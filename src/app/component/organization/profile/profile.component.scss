@@ -1,0 +1,26 @@
+.divider {
+    border: 1px solid #E2E3E8;
+    margin: 10px 0px;
+}
+
+ion-text {
+    margin: 10px 0px;
+}
+
+.card-content {
+    width: 80%;
+    color: #5B5B5B;
+}
+
+ion-title {
+    font-size: 17px;
+    padding: 0;
+    text-align: center;
+    color: var(--main-color);
+    text-transform: capitalize;
+}
+swiper-container{
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px     ;
+}

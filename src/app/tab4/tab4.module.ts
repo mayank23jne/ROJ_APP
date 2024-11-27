@@ -1,5 +1,5 @@
 import { IonicModule } from '@ionic/angular';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab4Page } from './tab4.page';
@@ -24,6 +24,7 @@ import { ProfileComponent as OrganizationProfileComponent } from '../component/o
     Tab4Page,
     DonorProfileComponent,
     OrganizationProfileComponent
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class Tab4PageModule {}

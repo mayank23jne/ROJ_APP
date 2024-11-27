@@ -1,104 +1,98 @@
-<article class="card-box rating-card">
-  <div class="content flex-box">
-    <span>Average Ratings</span>
-    <div class="flex-box value">
-      <span>-</span>
-      <span>
-        4.2
-        <ion-icon class="star-icon" name="star"></ion-icon>
-      </span>
+<div [hidden]="dashboardData.length == 0">
+  <article class="card-box rating-card">
+    <div class="content flex-box">
+      <span>Average Ratings</span>
+      <div class="flex-box value">
+        <span>-</span>
+        <span>
+          {{dashboardData?.rating}}
+          <ion-icon class="star-icon" name="star"></ion-icon>
+        </span>
+      </div>
     </div>
-  </div>
-</article>
-<article class="card-box">
-  <div class="content flex-box">
-    <span>Total Donations Received</span>
-    <div class="value flex-box">
-      <span>-</span>
-      <span>42</span>
-    </div>
-  </div>
-  <div class="content flex-box">
-    <span>Donations In Progress</span>
-    <div class="value flex-box">
-      <span>-</span>
-      <span>04</span>
-    </div>
-  </div>
-  <div class="content flex-box">
-    <span >Pending Donations</span>
-    <div class="value flex-box">
-      <span>-</span>
-      <span>02</span>
-    </div>
-  </div>
-</article>
-<div class="divider"></div>
-<ng-template *ngIf="userType == 'donor'">
-  <article class="card-box donations-graph">
-    <canvas #myChart></canvas>
-    <p>Total Donations this week - <span>{{ totalDonations }}</span></p>
   </article>
- 
-  <article>
-    <ion-segment [(ngModel)]="leadershipSelectedTab" mode="ios">
-      <ion-segment-button value="everbody">
-        <ion-label>Everbody</ion-label>
+  <article class="card-box">
+    <div class="content flex-box">
+      <span>Total Donations Received</span>
+      <div class="value flex-box">
+        <span>-</span>
+        <span>{{dashboardData?.total_donation}}</span>
+      </div>
+    </div>
+    <div class="content flex-box">
+      <span>Donations In Progress</span>
+      <div class="value flex-box">
+        <span>-</span>
+        <span>{{dashboardData?.in_progress_donation}}</span>
+      </div>
+    </div>
+    <div class="content flex-box">
+      <span >Pending Donations</span>
+      <div class="value flex-box">
+        <span>-</span>
+        <span>{{dashboardData?.in_progress_donation}}</span>
+      </div>
+    </div>
+  </article>
+  <div class="divider"></div>
+  <div *ngIf="userType == 'donor'">
+    <article class="card-box donations-graph">
+      <canvas #myChart></canvas>
+      <p>Total Donations this week - <span>{{ totalDonations }}</span></p>
+    </article>
+   
+    <article>
+      <ion-segment [(ngModel)]="leadershipSelectedTab" mode="ios">
+        <ion-segment-button value="everbody">
+          <ion-label>Everbody</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="friends">
+          <ion-label>Friends</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </article>
+    <div class="card-box text-center">Top 10 Donors from your city</div>
+    <article  class="card-box">
+      <div *ngIf="dashboardData.top_donor?.length > 0; else noDonors">
+        <div class="content flex-box" *ngFor="let topDonor of dashboardData.top_donor; let i = index">
+          <span>{{ i + 1 }}. {{ topDonor.name }}</span>
+          <span>Donated {{ topDonor.total_donate }} items</span>
+        </div>
+      </div>
+      <ng-template #noDonors>
+        <div class="text-center">
+          <ion-text>No top donors available</ion-text>
+        </div>
+      </ng-template>
+    </article>
+  
+    <div class="divider"></div>
+  </div>
+  <article >
+   <ion-segment [(ngModel)]="testimonialSelectedTab" mode="ios">
+      <ion-segment-button value="received">
+        <ion-label>Testimonials<br>Received</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="friends">
-        <ion-label>Friends</ion-label>
+      <ion-segment-button value="given">
+        <ion-label>Testimonials<br>Given</ion-label>
       </ion-segment-button>
     </ion-segment>
   </article>
-  <div class="card-box text-center">Top 10 Donors from your city</div>
-  <article  class="card-box">
-    <div class="content flex-box">
-      <span>1. Swapnil Gupta</span>
-      <span>Donated 24 items</span>
-    </div>
-    <div class="content flex-box">
-      <span>2. Swapnil Gupta</span>
-      <span>Donated 24 items</span>
-    </div>
-    <div class="content flex-box">
-      <span>3. Swapnil Gupta</span>
-      <span>Donated 24 items</span>
-    </div>
-    <div class="content flex-box">
-      <span>4. Swapnil Gupta</span>
-      <span>Donated 24 items</span>
-    </div>
-    <div class="content flex-box">
-      <span>5. Swapnil Gupta</span>
-      <span>Donated 24 items</span>
-    </div>
-  </article>
-
-  <div class="divider"></div>
-</ng-template>
-<article >
- <ion-segment [(ngModel)]="testimonialSelectedTab" mode="ios">
-    <ion-segment-button value="received">
-      <ion-label>Testimonials<br>Received</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="given">
-      <ion-label>Testimonials<br>Given</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-</article>
-<swiper-container  class="testimonial-swiper" [slidesPerView]="1" [loop]="true" [centeredSlides]="false" autoplay-delay="4000"
-  [pagination]="{ clickable: true }">
-       <swiper-slide *ngFor="let testimonial of testimonials">
-        <div class="testimonial-card">
-          <div class="testimonial-content">
-            <h3 class="name">{{testimonial.name}}</h3>
-            <p class="date">{{testimonial.date}}</p>
-            <div class="divider"></div>
-            <p class="message">{{testimonial.content}}</p>
-            <div class="view-donation">
-              <a href="#">VIEW DONATION</a>
+  <swiper-container  class="testimonial-swiper" [slidesPerView]="1" [loop]="true" [centeredSlides]="false" autoplay-delay="4000"
+    [pagination]="{ clickable: true }">
+         <swiper-slide *ngFor="let testimonial of testimonials">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <h3 class="name">{{testimonial.name}}</h3>
+              <p class="date">{{testimonial.date}}</p>
+              <div class="divider"></div>
+              <p class="message">{{testimonial.content}}</p>
+              <div class="view-donation">
+                <a href="#">VIEW DONATION</a>
+              </div>
             </div>
           </div>
-        </div>
-      </swiper-slide>
-</swiper-container>
+        </swiper-slide>
+  </swiper-container>
+
+</div>  
