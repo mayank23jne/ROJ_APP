@@ -50,4 +50,7 @@ export class ApiService {
   getWeeklyDonations() {
     return this.fetchApi('post', 'donor/getWeeklyDonations',{user_id:this.userData.user_id});
   }
+  getTestimonialForAll() {
+    return this.fetchApi('post', 'getTestimonialForAll');
+  }
 }

@@ -20,23 +20,7 @@ export class DashboardComponent implements OnInit {
   weeklyDonations: any;
   userType: string = '';
   
-  testimonials: any[] = [
-    {
-      name: 'Swapnil Gupta',
-      date: '27 Aug 2020',
-      content: 'Liked your place for old age people, you all are really taking care of them very efficiently.'
-    },
-    {
-      name: 'John Doe',
-      date: '28 Aug 2020',
-      content: 'Amazing facility and wonderful staff. Keep up the great work!'
-    },
-    {
-      name: 'Jane Smith',
-      date: '29 Aug 2020',
-      content: 'The care and attention provided here is exceptional. Highly recommended!'
-    }
-  ];
+  testimonials: any = [];
   dashboardData: any=[];
 
   constructor(
@@ -49,6 +33,7 @@ export class DashboardComponent implements OnInit {
       this.userType = type;
    });
     this.getDashboardData();
+    this.getTestimonialForAll();
   }
   getDashboardData() {
    
@@ -66,6 +51,17 @@ export class DashboardComponent implements OnInit {
         }
       })
     }
+  }
+  getTestimonialForAll() {
+    this.apiService.getTestimonialForAll().subscribe({
+      next: (result) => {
+        if(result.status)
+         this.testimonials = result.data;
+      },
+      error:(error) => {
+        console.error('Error fetching testimonials:', error);
+      }
+    })
   }
   ngAfterViewInit() {
     const ctx = this.myChart.nativeElement.getContext('2d');
