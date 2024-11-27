@@ -4,19 +4,20 @@
       <ion-header>
         <ion-toolbar class="header_sidebar">
           <div class="pl5 app_name">
-              <img class="logo-img" src="assets/images/logo.png" alt="logo">
+              <!-- <img class="logo-img" src="assets/images/logo.png" alt="logo"> -->
+               More
           </div>
         </ion-toolbar>
       </ion-header>
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-menu-toggle>
+          <!-- <ion-menu-toggle>
             <ion-item>
               <ion-icon name="person"></ion-icon>
-              <!-- <ion-label class="uname capitalize">{{ userName }}</ion-label>
-              <br><span class="capitalize role_badge">{{userRole  }}</span> -->
+              <ion-label class="uname capitalize">{{ userName }}</ion-label>
+              <br><span class="capitalize role_badge">{{userRole  }}</span> 
             </ion-item>
-          </ion-menu-toggle>
+          </ion-menu-toggle> -->
             <!-- <ion-list *ngFor="let p of menuList; let i = index" class="p-0">
               <ion-item (click)="toggleAccordion(i)" routerDirection="root" [routerLink]="[]" lines="none" detail="false" [class.selected]="selectedIndex === i">
                 <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon"></ion-icon>
@@ -32,18 +33,22 @@
               </ion-list>
             </ion-list> --> 
             <ion-menu-toggle >
-              <ion-list>
-             <ion-item 
-             *ngFor="let menu of menuList" [routerLink]="[menu.url]"  
-             [ngClass]="{'selected': menu.url == activeUrl}"
-             >
-                <ion-icon style="font-size:30px;" name="{{menu.icon}}"></ion-icon>
-                <ion-label style="position: relative;left: 25px;">{{menu.title}}</ion-label>
-              </ion-item>
-            </ion-list>
-         
+            
+              <ion-item 
+              *ngFor="let menu of menuList" 
+              [routerLink]="[menu.url]"  
+              [ngClass]="{'selected': menu.url == activeUrl}"
+            >
+              <ion-icon [src]="menu.iconPath"  slot="start"></ion-icon>
+              
+              <!-- Menu Content -->
+              <ion-label>
+                <div class="menu-title">{{menu.title}}</div>
+                <p class="menu-desc">{{menu.desc}}</p>
+              </ion-label>
+            </ion-item>
             <ion-item  lines="none" detail="false" (click)="logout()">
-              <ion-icon style="font-size:30px;" name="log-out-outline"></ion-icon>
+              <ion-icon class="logout-icon"  name="log-out-outline"></ion-icon>
               <ion-label style="position: relative;left: 25px;">Logout</ion-label>
             </ion-item>
           </ion-menu-toggle> 

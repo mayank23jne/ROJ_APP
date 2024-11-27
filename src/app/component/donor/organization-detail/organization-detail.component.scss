@@ -1,0 +1,81 @@
+ion-content{
+    font-family: var(--ion-font-family, inherit);
+    --color: #5B5B5B;
+}
+.badge{
+    background: #64C1E8;
+    position: relative;
+    top: -55px;
+    z-index: 999;
+    right: 33px;
+    border-radius: 12px;
+    padding: 5px;
+}
+swiper-container {
+    margin: 15px;
+    margin-top: 10px;
+}
+.img{
+    width: 100%;
+    border-radius: 10px;
+}
+.rating{
+    text-align: right;
+    width: 100%;
+}
+ion-text{
+    margin: 15px;
+    font-size: 14px;
+    b{
+        padding: 5px;
+    }
+}
+article{
+    margin-top: -50px;
+}
+.description{
+    padding: 5px 15px;
+    text-align: justify;
+    font-size: 14px;
+}
+h6{
+    padding-left: 15px;
+}
+.more_detail{
+    text-align: right;
+    text-transform: uppercase;
+    margin: 0px;
+}
+ion-buttons{
+    padding-left: 15px;
+    
+    .minus{
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        color: #999FAE !important;
+    }
+    .plus{
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+        color: #999FAE !important;
+    }
+    .count{
+        color: #262222 !important;
+    }
+    ion-button{
+        background: #F7F7FA;
+        padding: 15px;
+        min-height: 15px;
+        font-size: 18px;
+    }
+}
+.donate-btn{
+    width: 90%;
+    margin: 15px;
+    --border-radius:10px;
+}
+.more-detail-card{
+    box-shadow: none;
+}
+
+

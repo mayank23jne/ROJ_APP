@@ -1,0 +1,66 @@
+<ion-content>
+  <ion-text><ion-icon src="assets/icon/verify.svg"></ion-icon><b>PP Reddy Old Age Home</b></ion-text>
+  <swiper-container #swiper [slides-per-view]="1" [space-between]="10"  [pagination]="true">
+    <swiper-slide *ngFor="let image of images">
+      <div class="image-container">
+        <img class="img" [src]="image" alt="Carousel Image" />
+      </div>
+    </swiper-slide>
+  </swiper-container>
+  <div class="rating">
+    <ion-badge class="badge">4.5 <ion-icon name="star"></ion-icon></ion-badge>
+  </div>
+  <article class="description">
+    {{ receivedData.dataContainer.Description }}
+    <ion-text class="more_detail">More details</ion-text>
+  </article>
+  <h6>Detail of product required</h6>
+  <ion-text>
+    <span>Homeware small appliances, 2 Fans required.</span><br>
+    <span>How much you want to donate</span>
+  </ion-text>
+  <ion-buttons>
+    <ion-button class="minus" (click)="decrement()">-</ion-button>
+    <ion-button class="count">{{ product_count }}</ion-button>
+    <ion-button class="plus" (click)="increment()">+</ion-button>
+  </ion-buttons>
+
+  <ion-button class="donate-btn" (click)="proceed_donation()">Proceed for Donation</ion-button>
+
+  <ion-card class="more-detail-card">
+    <ion-row>
+      <ion-col>Address</ion-col>
+      <ion-col size="1">:</ion-col>
+      <ion-col> Mallapur ( V) Balapur
+        Mandal, RCI Rd, Hyderabad,
+        Telangana
+        500005</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Timing</ion-col>
+      <ion-col size="1">:</ion-col>
+      <ion-col> 9 am - 9 pm  (Mon - Sat)</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Phone</ion-col>
+      <ion-col size="1">:</ion-col>
+      <ion-col>098490 40000</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Started in year</ion-col>
+      <ion-col size="1">:</ion-col>
+      <ion-col>2003</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>No of people</ion-col>
+      <ion-col size="1">:</ion-col>
+      <ion-col>52</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>No of rooms</ion-col>
+      <ion-col size="1">:</ion-col>
+      <ion-col>35</ion-col>
+    </ion-row>
+   
+  </ion-card>
+</ion-content>

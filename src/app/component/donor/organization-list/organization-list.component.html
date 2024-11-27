@@ -1,0 +1,69 @@
+<ion-content ion-padding>
+<ion-card class="header-card">
+    <ion-row class="filters">
+      <ion-col (click)="filter('filter')">FILTER <ion-icon src="assets/icon/filter.svg"></ion-icon></ion-col>
+      <ion-col (click)="filter('sort')">SORT <ion-icon src="assets/icon/sort.svg"></ion-icon></ion-col>
+    </ion-row>
+</ion-card>
+
+<div class="form-group">
+  <input type="text" [(ngModel)]="searchText" placeholder="Type here.."  class="form-input" />
+
+  <ion-icon src="assets/icon/search-icon.svg" class="search-icon" ></ion-icon>
+  <!-- <ion-icon name="search-sharp" class="password-toggle" ></ion-icon> -->
+</div>
+<ion-card class="org-list-card">
+<ion-row>
+  <ion-col size="5">
+    <img src="assets/images/sos.png">
+  </ion-col>
+  <ion-col size="7">
+    <ion-text class="title"><b>SOS children village of india</b></ion-text>
+    <ion-text class="description-org">We are an independent, non-governmental and non-profit organisation working for the holistic development of parentless children </ion-text>
+  </ion-col>
+</ion-row>
+<ion-row class="verify">
+<ion-icon src="assets/icon/verify.svg"></ion-icon><ion-text>Verified by ROJ</ion-text>
+</ion-row>
+<ion-card class="org-detail">
+<ion-row>
+  <ion-col size="6">Product required</ion-col>
+  <ion-col size="1">- </ion-col>
+  <ion-col> Fan</ion-col>
+</ion-row>
+<ion-row >
+  <ion-col  size="6">No of product required</ion-col> 
+  <ion-col size="1">- </ion-col>
+  <ion-col>2 </ion-col>
+</ion-row>
+</ion-card>
+<ion-button class="donate-btn" (click)="donate(dataOrg)">Donate here</ion-button>
+</ion-card>
+<ion-card class="org-list-card">
+  <ion-row>
+    <ion-col size="5">
+      <img src="assets/images/sos.png">
+    </ion-col>
+    <ion-col size="7">
+      <ion-text class="title"><b>SOS children village of india</b></ion-text>
+      <ion-text class="description-org">We are an independent, non-governmental and non-profit organisation working for the holistic development of parentless children </ion-text>
+    </ion-col>
+  </ion-row>
+  <ion-row class="verify">
+  <ion-icon src="assets/icon/verify.svg"></ion-icon><ion-text>Verified by ROJ</ion-text>
+  </ion-row>
+  <ion-card class="org-detail">
+  <ion-row>
+    <ion-col size="6">Product required</ion-col>
+    <ion-col size="1">- </ion-col>
+    <ion-col> Fan</ion-col>
+  </ion-row>
+  <ion-row >
+    <ion-col  size="6">No of product required</ion-col> 
+    <ion-col size="1">- </ion-col>
+    <ion-col>2 </ion-col>
+  </ion-row>
+  </ion-card>
+  </ion-card>
+  <ion-button class="donate-btn" (click)="donate(dataOrg)">Donate here</ion-button>
+</ion-content>

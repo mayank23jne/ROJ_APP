@@ -1,0 +1,88 @@
+<ion-content>
+
+  <ion-icon class="close-icon" name="close-circle-outline" (click)="close()"></ion-icon>
+
+  <article *ngIf="delivery_type == 'schedule' || delivery_type == 'now' ">
+    <div class="pickup-container">
+    <!-- Pickup Address Label -->
+    <div class="label-row">
+      <span class="label-title">Pick Up Address</span>
+      <span class="colon">:</span>
+    </div>
+
+    <!-- Address Card -->
+    <div class="address-card">
+      <ion-label class="address-title">PRIMARY ADDRESS</ion-label>
+      <ion-textarea rows="5"
+        readonly
+        value="House No. 5 Abhinav homes phase 2,Ayodhya Extension,Bhopal, Madhya Pradesh,462041"
+      ></ion-textarea>
+      <ion-row class="address-btn">
+      <ion-col class="pl0">
+        <span>Edit Address</span>
+      </ion-col>
+      <ion-col>
+        <span> Choose another address</span>
+      </ion-col>
+     </ion-row>
+    </div>
+
+    <!-- Current Location -->
+    <div class="current-location">
+      <ion-icon name="location" class="location-icon"></ion-icon>
+      <span>USE CURRENT LOCATION</span>
+    </div>
+
+      <div *ngIf="delivery_type == 'now'">
+
+        <!-- Delivery Charges -->
+        <div class="charges-container">
+          <div class="label-row">
+            <span class="label-title">Delivery Charges</span>
+            <span class="colon">:</span>
+            <span class="charges">₹ 45 /-</span>
+          </div>
+        </div>
+
+        <!-- Pay & Donate Button -->
+        <div class="pay-button-container">
+          <ion-button expand="block" class="donate-btn">Pay & Donate</ion-button>
+        </div>
+      </div>
+      <div *ngIf="delivery_type == 'schedule'">
+        <ion-text class="note">
+          (Our Rainbows Of Joy delivery service partner will pick
+up the donation as soon as possible, we will contact
+you shortly)
+        </ion-text>
+
+        <div class="pay-button-container">
+          <ion-button expand="block" class="donate-btn">Donate</ion-button>
+        </div>
+      </div>
+  </div>
+  </article>
+  <article class="inperson-view" *ngIf="delivery_type == 'inperson'">
+    <ion-text class="note">
+      For the organization, 9am - 9pm (Mon-Sat)
+      is the regular timings and operations
+    </ion-text>
+    <ion-text class="note">
+      Kindly choose the convenient delivery date and
+      timing on which you will be visiting the organization.
+    </ion-text>
+    <div class="mt10">
+    <ion-label class="mb0">Delivery Date : </ion-label>
+    <input type="date" [(ngModel)]="delivery_date" class="date-container" name="delivery_date">
+      
+    <ion-label class="mt10 mb0">Delivery Timing : </ion-label>
+    <input type="time" [(ngModel)]="delivery_time_from" class="date-container" name="delivery_date">
+    <input type="time" [(ngModel)]="delivery_time_to" class="date-container" name="delivery_date">
+
+  </div>
+   
+    <ion-button expand="block" class="donate-btn">Donate</ion-button>
+   
+  </article>
+
+</ion-content>

@@ -1,0 +1,57 @@
+.filters{
+    ion-col {
+        text-align: center;
+        padding: 20px;
+    }
+}
+hr{
+    background: grey;
+}
+.header-card{
+    margin: 0px;
+}
+.search-icon{
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    font-size: 20px;
+    transform: translateY(-50%);
+    color: #999;
+}
+.form-input{
+    width: 90%;
+    padding: 10px 15px;
+    border: none;
+    color: #5B5B5B;
+    background-color: #F7F7FA;
+    border-radius: 8px;
+    font-size: 17px;
+    margin: 18px;
+}
+.description-org{
+    text-align: justify;
+    padding: 1px;
+}
+.org-detail{ 
+    margin: 2px;
+    box-shadow: none;
+    ion-col{
+        padding:5px;
+    }
+}
+.org-list-card{
+    padding: 5px;
+    .title{
+       color: #64c1e8;
+    }
+}
+.verify{
+    padding: 5px;
+    ion-text{
+        color: #903E52;
+        padding-left: 5px;
+    }
+}
+.form-group {
+    margin-bottom: 0px;
+}

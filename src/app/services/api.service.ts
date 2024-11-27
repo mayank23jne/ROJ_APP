@@ -38,16 +38,14 @@ export class ApiService {
     const userData = localStorage.getItem('app_user') || '';
     const data = JSON.parse(userData);
     
-    return this.fetchApi('post', 'getSignelUser', { id: data.user_id });
+    return this.fetchApi('post', 'getSingleUser', { id: data.user_id });
   }
-
   dashboard(){
     return this.fetchApi('post','dashboard_details');
   }
   permission() {
     return this.fetchApi('post','permission');
   }
-
   register(data:any) {
     return this.fetchApi('post','user-register', data);
   }

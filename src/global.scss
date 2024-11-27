@@ -223,3 +223,59 @@ article {
     left: 50%;
     transform: translate(-50%, -50%) scale(2);
 }
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+.text-left{
+    text-align: left;
+}
+.donate-btn{
+    --background: var(--main-color);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    text-transform: inherit;
+    --border-radius: 10px;
+}
+.custom-height-filter-modal {
+    --height: 275vh;
+    --border-radius: 16px; 
+}
+.mb0{
+    margin-bottom: 0px;
+}
+.mt0{
+    margin-top: 0px;
+}
+.mt10{
+    margin-top: 10px;
+}
+.mt15{
+    margin-top: 15px;
+}
+.mt20{
+    margin-top: 20px;
+}
+.close-icon{
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    font-size: 20px;
+    color: grey;
+    z-index: 999;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url(assets/icon/calendar.svg) no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}
+.black{
+    color: black;
+}

@@ -1,0 +1,96 @@
+<app-header></app-header>
+<ion-content class="ion-padding">
+  <div class="form-container">
+    <!-- Title and Description -->
+    <h2 class="form-title">Contact Information</h2>
+    <p class="form-description">
+      Fill up the form and our team will get back to you within 48 hours.
+    </p>
+
+    <!-- Form Fields -->
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <!-- Full Name -->
+      <ion-item lines="none" class="input-item">
+        <ion-input
+          formControlName="fullName"
+          placeholder="Full Name"
+          class="form-input"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Email ID -->
+      <ion-item lines="none" class="input-item">
+        <ion-input
+          type="email"
+          formControlName="email"
+          placeholder="Email Id"
+          class="form-input"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Phone Number -->
+      <ion-item lines="none" class="input-item">
+        <ion-input
+          type="tel"
+          formControlName="phone"
+          placeholder="Phone No."
+          class="form-input"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Topic -->
+      <ion-item lines="none" class="input-item">
+        <ion-select
+          formControlName="topic"
+          placeholder="Topic"
+          class="form-select"
+        >
+          <ion-select-option *ngFor="let topic of topics" [value]="topic">
+            {{ topic }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Sub-Topic -->
+      <ion-item lines="none" class="input-item">
+        <ion-select
+          formControlName="subTopic"
+          placeholder="Sub - Topic"
+          class="form-select"
+        >
+          <ion-select-option
+            *ngFor="let subTopic of subTopics"
+            [value]="subTopic"
+          >
+            {{ subTopic }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <!-- Message -->
+      <ion-item lines="none" class="input-item">
+        <ion-textarea
+          rows="4"
+          formControlName="message"
+          placeholder="Message"
+          class="form-textarea"
+        ></ion-textarea>
+      </ion-item>
+
+      <!-- reCAPTCHA -->
+      <div class="recaptcha-container">
+        <div id="recaptcha"></div>
+      </div>
+
+      <!-- Submit Button -->
+      <ion-button
+        expand="block"
+        type="submit"
+        class="submit-button"
+        [disabled]="!contactForm.valid"
+      >
+        Submit
+      </ion-button>
+    </form>
+  </div>
+</ion-content>

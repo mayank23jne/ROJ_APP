@@ -9,6 +9,7 @@ import { AlertController, Platform } from '@ionic/angular';
 import { Location } from '@angular/common'; 
 import { MenuController } from '@ionic/angular';
 import { ThemeService } from './services/theme.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,8 @@ export class AppComponent{
   activeUrl: string = '';
   userType: string = '';
   isLoading = false;
+  userName:string = '';
+  userRole:any = '';
 
   constructor(
     private router: Router,
@@ -29,9 +32,14 @@ export class AppComponent{
     private platform: Platform,
     private ThemeService: ThemeService,
     private location: Location,
+    private translate: TranslateService,
     private menu: MenuController
     
-  ) { this.initializeApp(); }
+  ) { 
+    this.initializeApp();
+    this.translate.setDefaultLang('en'); 
+    this.translate.use('en'); 
+   }
 
   ngOnInit():void {
     this.router.events.subscribe((event) => {
@@ -40,14 +48,13 @@ export class AppComponent{
         console.log(this.activeUrl);
       }
     });
-    // const user = localStorage.getItem('user');
-    // if (user) {
-    //   const userData = JSON.parse(user);
-    //   this.userName = userData.first_name;
-    //   this.userRole = userData.role_name;
-    //   this.showMenu();
-    // } 
-  
+    const user = localStorage.getItem('app_user');
+    if (user) {
+      const userData = JSON.parse(user);
+      this.userName = userData.name;
+      this.userRole = userData.user_type;
+      this.showMenu();
+    } 
     this.setStatusBar();
     this.menu.enable(true);
     this.ThemeService.getUserType().subscribe(theme => {
@@ -61,6 +68,7 @@ export class AppComponent{
   }
 
   initializeApp() {
+    
     this.platform.ready().then(() => {
       this.checkNetworkStatus();
       this.platform.backButton.subscribeWithPriority(10, () => {
@@ -107,25 +115,21 @@ async checkNetworkStatus() {
   }
 
 
-  // showMenu() {
-  //    if (this.userRole == 'Admin') {
-  //     this.menuList = [
-  //       { title: 'Home', url: '/tabs/tab2', icon: 'home' },
-  //       { title: 'Profile', url: '/tabs/tab3', icon: 'person' },
-  //       { title: 'Notification', url: '/tabs/tab1', icon: 'notifications-circle-outline' },
-  //       { title: 'Explore', url: '/explore', icon: 'compass' },
-  //       { title: 'Contact', url: '/contact', icon: 'call' },
-  //       { title: 'Help', url: '/help', icon: 'help-circle' },
-  //       { title: 'Settings', url: '/settings', icon: 'settings' },
-  //     ];
-  //   } else {
-  //     this.menuList = [
-  //       { title: 'Home', url: '/tabs/tab2', icon: 'home' },
-  //       { title: 'Profile', url: '/tabs/tab3', icon: 'person' },
-  //       { title: 'Notification', url: '/tabs/tab1', icon: 'notifications-circle-outline' },
-  //     ];
-  //   }
-  // }
+  showMenu() {
+     if (this.userRole == '1') {
+      this.menuList = [
+        { title: 'Choose Language', desc:"Your preferred language to use Rainbows Of Joy", url: '/language', iconPath: '../assets/icon/language.svg' },
+        { title: 'About us', desc:"Know more about the humble team of Rainbows Of Joy", url: '/about-us', iconPath: '../assets/icon/info.svg' },
+        { title: 'Contact us', desc:"Get in touch with the team of Rainbows Of Joy", url: '/contact-info', iconPath: '../assets/icon/contact.svg' },
+      ];
+    } else {
+      this.menuList = [
+        { title: 'Home', url: '/tabs/tab2', icon: 'home' },
+        // { title: 'Profile', url: '/tabs/tab3', icon: 'person' },
+        // { title: 'Notification', url: '/tabs/tab1', icon: 'notifications-circle-outline' },
+      ];
+    }
+  }
 
  
 

@@ -1,0 +1,23 @@
+.share-card{
+    text-align: center;
+    box-shadow: none;
+    margin-top: 40px;
+    .title{
+        font-size: 15px;
+        color: #262222;
+    }
+    .date{
+        font-size: 14px;
+        color: #262222;
+    }
+    ion-icon{
+        font-size: 40px;
+        margin-left: 10px;
+    }
+    
+}
+.hr{
+    background: #262222;
+    width: 20%;
+}
+

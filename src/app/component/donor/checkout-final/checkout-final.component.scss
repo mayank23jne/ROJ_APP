@@ -1,0 +1,132 @@
+ion-content{
+    font-family: var(--ion-font-family, inherit);
+    --color: #5B5B5B;
+}
+article{
+    margin: 15px;
+}
+.pickup-container {
+    margin-top: 70px;
+  
+    .label-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+  
+      .label-title {
+        font-size: 16px;
+        font-weight: 500;
+      }
+  
+      .colon {
+        margin-left: 5px;
+        font-size: 16px;
+      }
+    }
+  
+    .address-card {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+  
+      .address-title {
+        font-size: 14px;
+        font-weight: bold;
+        color: #888;
+        margin-bottom: 10px;
+      }
+  
+      ion-textarea {
+        --padding-top: 0px;
+        background: transparent;
+        border: none;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333;
+        --padding-start: 0;
+        --padding-end: 0;
+      }
+  
+      .address-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+  
+        .edit-btn,
+        .choose-btn {
+          font-size: 14px;
+          color: #3880ff;
+          padding: 0;
+        }
+      }
+    }
+  
+    .current-location {
+      display: flex;
+      align-items: center;
+      color: #888;
+      font-size: 12px;
+      margin-bottom: 20px;
+  
+      .location-icon {
+        font-size: 18px;
+        margin-right: 8px;
+      }
+    }
+  
+    .charges-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+  
+      .charges {
+        font-weight: bold;
+        color: #333;
+      }
+    }
+  
+    .address-btn{
+        font-size: 12px;
+        color: #888;
+    }
+    .pl0{
+        padding-left: 0px;
+    }
+    .note{
+        font-size: 12px;
+        color: #888;
+    }
+
+  }
+  .donate-btn{
+    position: relative;
+    top: 80px;
+  }
+
+.inperson-view{
+    font-size: 12px;
+    color: #888;
+    margin-top: 70px;
+}
+.date-icon{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    z-index: 999;
+    font-size: 24px;
+}
+.date-container{
+    background: #F7F7FA;
+    border-radius: 10px;
+    width: 45%;
+    border: none;
+    padding: 10px;
+    margin: 10px 5px;
+}
+
+
+
+  
+  

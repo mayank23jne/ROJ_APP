@@ -29,3 +29,30 @@
     background-color:#00000063;
     background-size: 180px 180px;
 }
+.uname{
+    text-transform: capitalize;
+    padding-top: 10px;
+}
+.menu-desc{
+    color: #903E52;
+    font-size: 12px;
+}
+ion-icon{
+    font-size: 25px;
+    position: relative;
+    bottom: 15px;
+    left: 10px;
+}
+ion-item {
+    .menu-title {
+      font-size: 16px; 
+      color: #333;
+    }
+}
+.app_name{
+    text-align: center;
+    color: #903E52;
+}
+.logout-icon{
+    bottom: 3px;
+}

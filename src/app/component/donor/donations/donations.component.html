@@ -18,7 +18,7 @@
   </article>
   <ng-content *ngIf="selectedTab == 'inProgress'">
       <article class="card-box" [ngClass]="{'fade-animation': selectedTab === 'inProgress'}" >
-      <ion-row class="card-header">
+      <ion-row class="card-header p0">
         <ion-col size="9" class="card-title">
           1 . Sri Vidhyas Centre For The Special Children
         </ion-col>
@@ -49,36 +49,20 @@
       </ion-row>
     </article>
   </ng-content>
-  <ng-content *ngIf="selectedTab == 'past'">
+  <ng-content class="past" *ngIf="selectedTab == 'past'">
       <article class="card-box" [ngClass]="{'fade-animation': selectedTab === 'past'}" >
-      <ion-row class="card-header">
-        <ion-col size="9" class="card-title">
-          1 . Sri Vidhyas Centre For The Special Children
-        </ion-col>
-        <ion-col size="3" class="card-id">
-          (#1891)
-        </ion-col>
+      <ion-row class="card-header past-header">
+       <ion-img class="img" src="assets/images/slide-1.jpg"></ion-img>
       </ion-row>
-    
       <ion-row class="card-content">
-        <ion-col size="6" class="label">Product Name</ion-col>
-        <ion-col size="6">-  Blanket</ion-col>
-        
-        <ion-col size="6" class="label">No of Product</ion-col>
-        <ion-col size="6">-  05</ion-col>
-        
-        <ion-col size="6" class="label">Delivery Date</ion-col>
-        <ion-col size="6">-  05-10-2024</ion-col>
-        
-        <ion-col size="6" class="label">Delivery Timing</ion-col>
-        <ion-col size="6">-  08:10 am to 11:00 am</ion-col>
-        
-        <ion-col size="6" class="status-label">Status</ion-col>
-        <ion-col size="6" class="status">-  In Progress</ion-col>
-        <ion-col size="12" class="delivery-details">Change Delivery Details</ion-col>
+        <ion-text>Sri Vidhyas Centre For The Special Children</ion-text>
+        <p>Secunderabad, Telangana</p>
       </ion-row>
-      <ion-row class="card-footer">
-          <button class="ripple-icon">Self Delivery</button>
+      <ion-row class="past-footer card-footer">
+         <ion-col size="7">Sun, 29 Sep, 2020</ion-col>
+         <ion-col size="5" class="text-right">7:45 pm</ion-col>
+         <ion-col size="7">Donation of 5 Blankets </ion-col>
+         <ion-col size="5" class="text-right share" (click)="share()">SHARE</ion-col>
       </ion-row>
     </article>
   </ng-content>

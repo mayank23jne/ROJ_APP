@@ -8,6 +8,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 import { SharedModule } from '../shared.module';
 import { DashboardComponent } from '../component/dashboard/dashboard.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { DashboardComponent } from '../component/dashboard/dashboard.component';
     FormsModule,
     ExploreContainerComponentModule,
     Tab2PageRoutingModule,
+    TranslateModule,
     SharedModule
   ],
   declarations: [Tab2Page ,DashboardComponent],

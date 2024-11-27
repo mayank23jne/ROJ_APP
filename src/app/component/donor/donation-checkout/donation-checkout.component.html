@@ -1,0 +1,55 @@
+<ion-content>
+<ion-card class="header-card">
+  Confirm your donation details
+</ion-card>
+<ion-card class="detail">
+You are donating 2 Fans to PP Reddy Old
+Age Home 
+</ion-card>
+<ion-card class="grid">
+<ion-row >
+  <ion-col class="pt5">No. of Product</ion-col>
+  <ion-col>
+    <ion-buttons>
+      <ion-button class="minus" (click)="decrement()">-</ion-button>
+      <ion-button class="count">{{ product_count }}</ion-button>
+      <ion-button class="plus" (click)="increment()">+</ion-button>
+    </ion-buttons>
+  </ion-col>
+</ion-row>
+<ion-row class="mt10">
+  <ion-col size="4">Delivery type</ion-col>
+  <ion-col class="radio-list">
+    <ion-radio-group [(ngModel)]="deliveryType" (ionChange)="deliveryTypeChange()">
+      <!-- Option 1 -->
+      <ion-item lines="none" class="radio-item">
+        <ion-radio slot="start" value="schedule"></ion-radio>
+        <ion-label>
+          <span>Schedule a Delivery</span>
+          <p>(Free delivery which may take up to a week's time)</p>
+        </ion-label>
+      </ion-item>
+
+      <!-- Option 2 -->
+      <ion-item lines="none" class="radio-item">
+        <ion-radio slot="start" value="inperson"></ion-radio>
+        <ion-label>
+          <span>Deliver Inperson</span>
+          <p>(Donor can visit the organization and donate it personally)</p>
+        </ion-label>
+      </ion-item>
+
+      <!-- Option 3 -->
+      <ion-item lines="none" class="radio-item">
+        <ion-radio slot="start" value="now"></ion-radio>
+        <ion-label>
+          <span>Deliver Now</span>
+          <p>(Our service for instant delivery on the same day)</p>
+        </ion-label>
+      </ion-item>
+    </ion-radio-group>
+  </ion-col>
+</ion-row>
+</ion-card>
+<ion-button class="donate-btn" [disabled]="!deliveryType" (click)="proceed()">Proceed</ion-button>
+</ion-content>

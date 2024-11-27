@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
+import { OrganizationListComponent } from './component/donor/organization-list/organization-list.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/organization/register-profile/register-profile.module').then( m => m.RegisterProfilePageModule)
   },
   {
+    path: 'contact-info',
+    loadChildren: () => import('./pages/contact-info/contact-info.module').then( m => m.ContactInfoPageModule)
+  },
+  {
+    path: 'about-us',
+    loadChildren: () => import('./pages/about-us/about-us.module').then( m => m.AboutUsPageModule)
+  },
+  {
     path: '',
     redirectTo: 'tabs',
     pathMatch: 'full'
@@ -39,8 +48,6 @@ const routes: Routes = [
     redirectTo: 'tabs',
     pathMatch: 'full'
   },
- 
- 
 ];
 @NgModule({
   imports: [

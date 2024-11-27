@@ -1,0 +1,63 @@
+<ion-content>
+  <ion-icon class="close-icon" name="close-circle-outline" (click)="close()"></ion-icon>
+
+  <ion-card class="header-card">
+    <ion-row class="filters">
+      <ion-col
+    [ngClass]="filter_type === 'filter' ? 'active' : ''">
+    FILTER
+    <ion-icon [ngClass]="filter_type === 'filter' ? 'active' : ''"  src="assets/icon/filter.svg"></ion-icon>
+  </ion-col>
+
+  <ion-col
+    [ngClass]="filter_type === 'sort' ? 'active' : ''">
+    SORT
+    <ion-icon [ngClass]="filter_type === 'sort' ? 'active' : ''" src="assets/icon/sort.svg"></ion-icon>
+  </ion-col>
+  </ion-row>
+</ion-card>
+<form [formGroup]="filterForm" *ngIf="filter_type == 'filter'">
+  <!-- Slider -->
+  <div class="filter-section">
+    <ion-label class="label-title">No. of product</ion-label>
+    <ion-range
+      formControlName="noOfProducts"
+      min="0"
+      max="50"
+      step="1"
+      pin="true"
+      (ionChange)="updateSliderValue($event)"
+    ></ion-range>
+    <p>{{ filterForm.get('noOfProducts')?.value }}</p>
+  </div>
+
+  <!-- Dropdown -->
+  <div class="filter-section">
+    <ion-item lines="none">
+      <ion-label>Organization type</ion-label>
+      <ion-select slot="end" formControlName="organizationType" placeholder="Select One">
+        <ion-select-option value="private">Private</ion-select-option>
+        <ion-select-option value="public">Public</ion-select-option>
+        <ion-select-option value="ngo">NGO</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+  <!-- Verification Radios -->
+  <div class="filter-section">
+    <ion-label class="label-title">Verification</ion-label>
+    <ion-item lines="none">
+      <ion-select slot="end" formControlName="verificationStatus" placeholder="Select Verification">
+        <ion-select-option value="verified">Verified by ROJ</ion-select-option>
+        <ion-select-option value="not_verified">Not verified by ROJ</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+</form>
+<div class="filter-section" *ngIf="filter_type == 'sort'">
+  <ion-item lines="none">
+    <ion-checkbox slot="start" [(ngModel)]="distance"></ion-checkbox>
+    <ion-label>By Distance</ion-label>
+  </ion-item>
+</div>
+</ion-content>

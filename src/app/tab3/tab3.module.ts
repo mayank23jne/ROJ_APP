@@ -8,6 +8,7 @@ import { Tab3PageRoutingModule } from './tab3-routing.module';
 import { SharedModule } from '../shared.module';
 import { DonationsComponent as DonorDonationsComponent } from '../component/donor/donations/donations.component';
 import { DonationsComponent as OrganizationDonationsComponent } from '../component/organization/donations/donations.component';
+import { ShareComponent } from '../component/donor/share/share.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { DonationsComponent as OrganizationDonationsComponent } from '../compone
   declarations: [
     Tab3Page,
     DonorDonationsComponent,
-    OrganizationDonationsComponent
+    OrganizationDonationsComponent,
+    ShareComponent
   ]
 })
 export class Tab3PageModule {}
